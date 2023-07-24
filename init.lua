@@ -216,6 +216,23 @@ vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.number = true
 
+-- Make relative line numbers default
+vim.wo.relativenumber = true
+
+-- Tab is 4 space indent
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+
+-- Does not highlight while searching
+vim.o.hlsearch = false
+-- Imcremental search
+vim.o.incsearch = true
+
+--Do not have less than 8 line numbers towards the bottom
+vim.o.scrolloff = 8
+
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
@@ -513,3 +530,4 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
