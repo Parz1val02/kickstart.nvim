@@ -285,6 +285,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+-- Automatically open neotree
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  group = vim.api.nvim_create_augroup("NeotreeOnOpen", { clear = true }),
+  once = true,
+  callback = function(_)
+    if vim.fn.argc() == 0 then
+      vim.cmd("Neotree")
+    end
+  end,
+})
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -297,6 +309,13 @@ require('telescope').setup {
     },
   },
 }
+
+--onedark setup
+-- Lua
+require('onedark').setup {
+    style = 'deep'
+}
+require('onedark').load()
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -325,8 +344,14 @@ require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
 
+   -- List of parsers to ignore installing (for "all")
+  ignore_install = { "" },
+
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
 
   highlight = { enable = true },
   indent = { enable = true },
