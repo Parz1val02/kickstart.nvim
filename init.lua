@@ -195,6 +195,7 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  {'ThePrimeagen/vim-be-good'},
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -208,8 +209,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  {'ThePrimeagen/vim-be-good'},
-   { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -439,6 +439,9 @@ vim.keymap.set('n', '<leader>gs', vim.cmd.Git ,{ desc = 'Open Git page' })
 --Move around highlighted lines in visual mode
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+--Cursor does not move from position when appending below to the end of the current lines
+vim.keymap.set('n', 'J', 'mzJ`z')
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
