@@ -418,15 +418,9 @@ end
 local function live_grep_git_root()
   local git_root = find_git_root()
   if git_root then
-<<<<<<< HEAD
-    require('telescope.builtin').live_grep({
-      search_dirs = { git_root },
-    })
-=======
     require('telescope.builtin').live_grep {
       search_dirs = { git_root },
     }
->>>>>>> 76c5b1ec57f40d17ac787feb018817a802e24bb6
   end
 end
 
@@ -530,7 +524,6 @@ vim.defer_fn(function()
   }
 end, 0)
 
-<<<<<<< HEAD
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
@@ -558,8 +551,6 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 --Cursor does not move from position when appending below to the end of the current lines
 vim.keymap.set('n', 'J', 'mzJ`z')
 
-=======
->>>>>>> 76c5b1ec57f40d17ac787feb018817a802e24bb6
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
